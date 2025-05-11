@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fdf6f0 0%, #fce4ec 50%, #f3e5f5 100%);
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(252, 228, 236, 0.5) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(243, 229, 245, 0.5) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(253, 246, 240, 0.5) 0%, transparent 60%);
+}
+
+.decorative-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.bird {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(252, 228, 236, 0.8);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    filter: drop-shadow(0 0 5px rgba(252, 228, 236, 0.5));
+}
+
+.bird-1 {
+    top: 10%;
+    left: 10%;
+    transform: rotate(-15deg);
+}
+
+.bird-2 {
+    top: 15%;
+    right: 15%;
+    transform: rotate(15deg);
+}
+
+.flower {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(252, 228, 236, 0.7);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 5px rgba(252, 228, 236, 0.5));
+}
+
+.flower::before,
+.flower::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+.flower::before {
+    transform: translateX(-50%);
+}
+
+.flower::after {
+    transform: translateY(-50%);
+}
+
+.flower-1 {
+    bottom: 20%;
+    left: 20%;
+    transform: rotate(45deg);
+}
+
+.flower-2 {
+    bottom: 30%;
+    right: 25%;
+    transform: rotate(-30deg);
+}
+
+.flower-3 {
+    top: 40%;
+    left: 30%;
+    transform: rotate(15deg);
+}
+
+.heart {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(252, 228, 236, 0.9);
+    transform: rotate(45deg);
+    filter: drop-shadow(0 0 8px rgba(252, 228, 236, 0.8));
+    animation: float 3s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -50%;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -50%;
+}
+
+@keyframes float {
+    0% {
+        transform: rotate(45deg) translateY(0px);
+    }
+    50% {
+        transform: rotate(45deg) translateY(-10px);
+    }
+    100% {
+        transform: rotate(45deg) translateY(0px);
+    }
+}
+
+.heart-1 {
+    top: 25%;
+    left: 25%;
+    transform: rotate(-15deg);
+    animation-delay: 0s;
+}
+
+.heart-2 {
+    bottom: 25%;
+    right: 25%;
+    transform: rotate(15deg);
+    animation-delay: 0.5s;
+}
+
+.heart-3 {
+    top: 15%;
+    left: 40%;
+    transform: rotate(30deg);
+    width: 30px;
+    height: 30px;
+    animation-delay: 1s;
+}
+
+.heart-4 {
+    top: 35%;
+    right: 30%;
+    transform: rotate(-45deg);
+    width: 25px;
+    height: 25px;
+    animation-delay: 1.5s;
+}
+
+.heart-5 {
+    bottom: 15%;
+    left: 35%;
+    transform: rotate(60deg);
+    width: 35px;
+    height: 35px;
+    animation-delay: 2s;
+}
+
+.heart-6 {
+    top: 45%;
+    left: 15%;
+    transform: rotate(-30deg);
+    width: 20px;
+    height: 20px;
+    animation-delay: 2.5s;
+}
+
+.heart-7 {
+    bottom: 40%;
+    right: 15%;
+    transform: rotate(45deg);
+    width: 30px;
+    height: 30px;
+    animation-delay: 3s;
+}
+
+.heart-8 {
+    top: 30%;
+    right: 40%;
+    transform: rotate(-60deg);
+    width: 25px;
+    height: 25px;
+    animation-delay: 3.5s;
+}
+
+.container {
+    perspective: 1000px;
+    z-index: 1;
+    width: 70%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    padding-bottom: 66.67%;
+    background-color: #f8bbd0;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.envelope-title {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(28px, 6vw, 48px);
+    color: #000000;
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    letter-spacing: 1px;
+    padding: 0 10px;
+}
+
+.envelope:hover {
+    transform: none;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: -33.33%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50% solid transparent;
+    border-right: 50% solid transparent;
+    border-bottom: 33.33% solid #ffcdd2;
+    transform-origin: bottom;
+    transition: transform 0.5s ease;
+    z-index: 2;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffcdd2;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateZ(-1px);
+}
+
+.envelope::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8bbd0;
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+    transform: translateZ(-1px);
+    z-index: 1;
+}
+
+.letter {
+    display: none;
+}
+
+.signature {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.name {
+    font-style: italic;
+    color: #e74c3c;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+        margin-top: 60px;
+    }
+    
+    .envelope-title {
+        top: -60px;
+        font-size: clamp(24px, 8vw, 36px);
+        white-space: normal;
+        line-height: 1.2;
+        padding: 0 5px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .envelope-title {
+        font-size: clamp(20px, 7vw, 28px);
+        top: -50px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 800px;
+    }
+} 
